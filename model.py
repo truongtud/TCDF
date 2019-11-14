@@ -27,6 +27,7 @@ class ADDSTCN(nn.Module):
     def init_weights(self):
         self.pointwise.weight.data.normal_(0, 0.1)
 
+
     def forward(self, x):
         y1 = self.dwn(x * F.softmax(self.fs_attention, dim=0))
         y1 = self.pointwise(y1)
